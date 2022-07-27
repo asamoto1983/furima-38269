@@ -25,9 +25,8 @@
 | category_id         | integer    | null: false                    |
 | condition_id        | integer    | null: false                    |
 | del_charge_id       | integer    | null: false                    |
-| del_area_id         | integer    | null: false                    |
-| del_day_id          | integer    | null: false                    |
 | prefecture_id       | integer    | null: false                    |
+| del_day_id          | integer    | null: false                    |
 | user                | references | null: false, foreign_key: true |
 
 ### Association
