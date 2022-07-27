@@ -27,11 +27,12 @@
 | del_charge_id       | integer    | null: false                    |
 | del_area_id         | integer    | null: false                    |
 | del_day_id          | integer    | null: false                    |
+| prefecture_id       | integer    | null: false                    |
 | user                | references | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :user
-- has_many :buy
+- has_one :buy
 
 ## buysテーブル
 
@@ -43,7 +44,7 @@
 ### Association
 - belongs_to :user
 - belongs_to :product
-- has_one :addresses
+- has_one :address
 
 ## addressesテーブル
 
@@ -58,4 +59,4 @@
 | buy                 | references | null: false, foreign_key: true |
 
 ### Association
-- has_one :buy
+- belongs_to :buy
