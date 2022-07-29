@@ -7,7 +7,7 @@
     <h2 class="items-sell-title">商品の情報を入力</h2>
     <%= form_with(model: @item, local: true) do |f| %>
 
-    <% render 'shared/error_messages', model: f.object %>
+    <%= render 'shared/error_messages', model: f.object %>
 
     <div class="img-upload">
       <div class="weight-bold-text">
@@ -54,9 +54,8 @@
         <%= f.collection_select(:condition_id, Condition.all, :id, :name, {}, {class:"select-box", id:"item-sales-status"}) %>
       </div>
     </div>
-    <%# /商品の詳細 %>
 
-    <%# 配送について %>
+
     <div class="items-detail">
       <div class="weight-bold-text question-text">
         <span>配送について</span>

@@ -6,6 +6,6 @@ window.addEventListener('load', () => {
     const addTaxDom = document.getElementById("add-tax-price");
     addTaxDom.innerHTML = commission
     const SalesProfit = document.getElementById("profit");
-    SalesProfit.innerHTML = inputValue - commission;
+    SalesProfit.innerHTML = Math.floor(inputValue - commission);
   });
 });
