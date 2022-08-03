@@ -81,13 +81,13 @@ RSpec.describe BuyAddress, type: :model do
       end
 
       it '電話番号が9桁以下では購入できない' do
-        @buy_address.phone_number =  '123456789'
+        @buy_address.phone_number = '123456789'
         @buy_address.valid?
         expect(@buy_address.errors.full_messages).to include 'Phone number は半角数値のみ登録可能です'
       end
 
       it '電話番号が12桁以上では購入できない' do
-        @buy_address.phone_number =  '012345678910'
+        @buy_address.phone_number = '012345678910'
         @buy_address.valid?
         expect(@buy_address.errors.full_messages).to include 'Phone number は半角数値のみ登録可能です'
       end
