@@ -8,7 +8,7 @@ class Item < ApplicationRecord
 
   validates :image,           presence: true
   validates :item,            presence: true
-  validates :explain, presence: true
+  validates :explain,         presence: true
   validates :category_id,     numericality: { other_than: 1, message: "can't be blank" }
   validates :condition_id,    numericality: { other_than: 1, message: "can't be blank" }
   validates :del_charge_id,   numericality: { other_than: 1, message: "can't be blank" }
@@ -20,6 +20,6 @@ class Item < ApplicationRecord
   end
 
   belongs_to :user
-  # has_one :buy
+  has_one :buy
   has_one_attached :image
 end
