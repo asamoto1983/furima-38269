@@ -11,12 +11,12 @@ class BuyAddress
   end
 
   validates :post_code,
-    presence: true,
-    format: { with: /\A[0-9]{3}-[0-9]{4}\z/, message: 'is invalid. Include hyphen(-)' , allow_blank: true}
-  validates :phone_number, 
-    presence: true,
-    format: { with: /\A\d{10,11}\z/, message: 'は半角数値のみ登録可能です' , allow_blank: true}
-  
+            presence: true,
+            format: { with: /\A[0-9]{3}-[0-9]{4}\z/, message: 'is invalid. Include hyphen(-)', allow_blank: true }
+  validates :phone_number,
+            presence: true,
+            format: { with: /\A\d{10,11}\z/, message: 'は半角数値のみ登録可能です', allow_blank: true }
+
   def save
     buy = Buy.create(user_id: user_id, item_id: item_id)
     Address.create(post_code: post_code, prefecture_id: prefecture_id, municipalities: municipalities,
