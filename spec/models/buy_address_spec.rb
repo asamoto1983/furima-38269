@@ -35,7 +35,7 @@ RSpec.describe BuyAddress, type: :model do
       it '郵便番号がなければ購入できない' do
         @buy_address.post_code = ''
         @buy_address.valid?
-        expect(@buy_address.errors.full_messages).to include "Post code can't be blank", 'Post code is invalid. Include hyphen(-)'
+        expect(@buy_address.errors.full_messages).to include "Post code can't be blank"
       end
 
       it '郵便番号は3桁ハイフン4桁でなければ購入できない' do
@@ -77,11 +77,17 @@ RSpec.describe BuyAddress, type: :model do
       it '電話番号がなければ購入できない' do
         @buy_address.phone_number = ''
         @buy_address.valid?
-        expect(@buy_address.errors.full_messages).to include "Phone number can't be blank", 'Phone number は半角数値のみ登録可能です'
+        expect(@buy_address.errors.full_messages).to include "Phone number can't be blank"
       end
 
-      it '電話番号が10桁より少なければ購入できない' do
-        @buy_address.phone_number = '061234567'
+      it '電話番号が9桁以下では購入できない' do
+        @buy_address.phone_number =  '123456789'
+        @buy_address.valid?
+        expect(@buy_address.errors.full_messages).to include 'Phone number は半角数値のみ登録可能です'
+      end
+
+      it '電話番号が12桁以上では購入できない' do
+        @buy_address.phone_number =  '012345678910'
         @buy_address.valid?
         expect(@buy_address.errors.full_messages).to include 'Phone number は半角数値のみ登録可能です'
       end
