@@ -7,7 +7,7 @@ class BuyAddress
     validates :item_id
     validates :token
     validates :municipalities, :house_number
-    validates :prefecture_id, numericality: { other_than: 1, message: "を入力してください" }
+    validates :prefecture_id, numericality: { other_than: 1, message: 'を入力してください' }
   end
 
   validates :post_code,
