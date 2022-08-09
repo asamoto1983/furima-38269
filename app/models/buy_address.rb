@@ -7,12 +7,12 @@ class BuyAddress
     validates :item_id
     validates :token
     validates :municipalities, :house_number
-    validates :prefecture_id, numericality: { other_than: 1, message: "can't be blank" }
+    validates :prefecture_id, numericality: { other_than: 1, message: "を入力してください" }
   end
 
   validates :post_code,
             presence: true,
-            format: { with: /\A[0-9]{3}-[0-9]{4}\z/, message: 'is invalid. Include hyphen(-)', allow_blank: true }
+            format: { with: /\A[0-9]{3}-[0-9]{4}\z/, message: 'はハイフンを含めて入力してください', allow_blank: true }
   validates :phone_number,
             presence: true,
             format: { with: /\A\d{10,11}\z/, message: 'は半角数値のみ登録可能です', allow_blank: true }

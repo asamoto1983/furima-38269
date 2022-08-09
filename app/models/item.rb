@@ -9,14 +9,16 @@ class Item < ApplicationRecord
   validates :image,           presence: true
   validates :item,            presence: true
   validates :explain,         presence: true
-  validates :category_id,     numericality: { other_than: 1, message: "can't be blank" }
-  validates :condition_id,    numericality: { other_than: 1, message: "can't be blank" }
-  validates :del_charge_id,   numericality: { other_than: 1, message: "can't be blank" }
-  validates :prefecture_id,   numericality: { other_than: 1, message: "can't be blank" }
-  validates :del_day_id,      numericality: { other_than: 1, message: "can't be blank" }
+  with_options numericality: { other_than: 1, message: "を入力してください" }do
+  validates :category_id
+  validates :condition_id
+  validates :del_charge_id
+  validates :prefecture_id
+  validates :del_day_id
+  end
   with_options presence: true, format: { with: /\A[0-9]+\z/ } do
     validates :price, numericality: { only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999 },
-                      presence: { message: "can't be blank" }
+                      presence: { message: "を入力してください" }
   end
 
   belongs_to :user
