@@ -12,10 +12,10 @@ class BuyAddress
 
   validates :post_code,
             presence: true,
-            format: { with: /\A[0-9]{3}-[0-9]{4}\z/, message: 'はハイフンを含めて入力してください', allow_blank: true }
+            format: { with: /\A[0-9]{3}-[0-9]{4}\z/, message: 'が正しくありません ハイフン(-)を含めて半角文字で入力してください', allow_blank: true }
   validates :phone_number,
             presence: true,
-            format: { with: /\A\d{10,11}\z/, message: 'は半角数値のみ登録可能です', allow_blank: true }
+            format: { with: /\A\d{10,11}\z/, message: 'が正しくありません 電話番号は半角数値のみ登録可能です', allow_blank: true }
 
   def save
     buy = Buy.create(user_id: user_id, item_id: item_id)
